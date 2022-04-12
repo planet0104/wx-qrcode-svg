@@ -1,0 +1,21 @@
+[package]
+name = "qrcode-svg"
+version = "1.0.0"
+edition = "2021"
+description = "微信小程序二维码生成工具(SVG)"
+repository = "https://github.com/planet0104/wx-qrcode-svg"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.80"
+qrcode-generator = { version= "4.1.4", default-features = false }
+
+[profile.release]
+strip = true
+lto = true
+opt-level = 'z'
+codegen-units = 1
+panic = 'abort'
