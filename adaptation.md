@@ -44,22 +44,42 @@ async function load(module, imports) {
 
 
 ```javascript
-
 /**
 * 生成二维码
 * @param {Uint8Array | String} data
 * @param {number} size
 * @returns {String}
 */
-export default async function generateQRCode(data, size){
-  if(!wasm){
-    await init('/utils/qrcode_svg.wasm');
-  }
-  if(typeof data == "string"){
-    return stringToQRCode(data, size);
-  }else{
-    return bytesToQRCode(data, size);
-  }
+export async function generateQRCode(data, size){
+    if(!wasm){
+        await init('/utils/qrcode_svg.wasm');
+    }
+    if(typeof data == "string"){
+        return stringToQRCode(data, size);
+    }else{
+        return bytesToQRCode(data, size);
+    }
 }
 
+/**
+* 生成二维码 PNG Base64
+* @param {Uint8Array | String} data
+* @param {number} size
+* @returns {String}
+*/
+export async function generateQRCodePng(data, size){
+    if(!wasm){
+        await init('/utils/qrcode_svg.wasm');
+    }
+    if(typeof data == "string"){
+        return stringToQRCodePng(data, size);
+    }else{
+        return bytesToQRCodePng(data, size);
+    }
+}
+
+export default{
+    generateQRCode,
+    generateQRCodePng,
+}
 ```

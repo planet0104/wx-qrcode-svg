@@ -11,7 +11,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wasm-bindgen = "0.2.80"
-qrcode-generator = { version= "4.1.4", default-features = false }
+qrcode-generator = "4.1.6"
+base64 = "0.20.0-alpha.1"
 
 [profile.release]
 strip = true

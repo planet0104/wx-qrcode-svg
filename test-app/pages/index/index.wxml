@@ -1,5 +1,4 @@
 <!--index.wxml-->
 <view>
-    <text>仅支持真机运行</text>
-    <image src="{{ qrCode }}" />
+    <image src="data:image/png;base64,{{imgData}}" />
 </view>
